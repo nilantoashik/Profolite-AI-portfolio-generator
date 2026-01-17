@@ -360,6 +360,28 @@ Profolite uses a sophisticated prompt system that:
 2. Set `REACT_APP_API_URL` to your deployed backend URL
 3. Deploy the `build` directory
 
+#### GitHub Pages CI (Auto-deploy)
+
+This repo is configured to automatically deploy the React frontend to the `gh-pages` branch on each push to `main`/`master`.
+
+- Workflow: see [.github/workflows/deploy-pages.yml](.github/workflows/deploy-pages.yml)
+- Build output: publishes from [frontend/build](frontend/build) to `gh-pages`
+- SPA support: adds `.nojekyll` and a `404.html` redirect for client-side routing
+
+Manual trigger:
+
+```bash
+# From the repo on GitHub: Actions → "Deploy Frontend to GitHub Pages" → Run workflow
+```
+
+Manual deploy (local):
+
+```bash
+cd frontend
+npm run build
+npm run deploy
+```
+
 ---
 
 ## 🛣️ Roadmap
